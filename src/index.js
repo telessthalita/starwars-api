@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -6,7 +7,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://telessthalita:Th110299.@starwars-api.zfv3mpj.mongodb.net/?retryWrites=true&w=majority&appName=starwars-api')
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('Connected to MongoDB');
     })
